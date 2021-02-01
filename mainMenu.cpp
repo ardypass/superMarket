@@ -1,15 +1,16 @@
 #include <string>
 #include <stdlib.h> 
-#include "menuItem.h"
-#include "menuTransaction.h"
+#include "menuItem.cpp"
+#include "menuTransaction.cpp"
 #include "menu.h"
 #include "tools.h"
+using namespace std;
 
 class MainMenu: public Menu{
 	private:
-		MenuItem menuItem = new menuItem();
-		MenuTransaction menuTransaction = new MenuTransaction();
-		Tools tools = new tools();
+		MenuItem menuItem;
+		MenuTransaction menuTransaction;
+		Tools tools;
 	
 		void printMenu(){
 			printf("\t\tSuper Market Billing\n");
@@ -22,17 +23,19 @@ class MainMenu: public Menu{
 		}
 	
 		void readUserInput(){
-			string input = "";
+			string input;
 			printf("\tPlease Enter Required Option:\n");
-			scanf("%s", &input);
+			cin>>input;
 			
 			int option = tools.checkMenuInput(input);
-			switch(option):
-				case "1": menuTransaction.showMenu(); break;
-				case "2": menuItem.showMenu(); break;
-				case "3": menuItem.showDetailsMenu(); break;
-				case "4": exit(EXIT_SUCCESS); break;
-				default throw(100);			
+			switch(option){
+				case 1: menuTransaction.showMenu(); break;
+				case 2: menuItem.showMenu(); break;
+				case 3: menuItem.showDetailsMenu(); break;
+				case 4: exit(EXIT_SUCCESS); break;
+				default: throw(100);
+			}
+							
 			
 		}
-}
+};

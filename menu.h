@@ -1,13 +1,19 @@
+#ifndef MENU_H
+#define MENU_H
+
 #include <string>
 #include <stdlib.h> 
+using namespace std;
 
 class Menu{
 	protected:
-		void printMenu();
-		void readUserInput();
+		virtual void printMenu(){}
+		virtual void readUserInput(){}
 	public:
-		showMenu(){
-			this.printMenu();
-			this.readUserInput();
+		void showMenu(){
+			this->printMenu();
+			this->readUserInput();
 		}
-}
+};
+
+#endif

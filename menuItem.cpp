@@ -1,10 +1,12 @@
 #include <string>
 #include "menu.h"
-#include "item.h"
+#include "item.cpp"
 #include "tools.h"
+using namespace std;
 
 class MenuItem: public Menu{
 	private:
+		Tools tools;
 		void printMenu(){
 				printf("\t\tBill Editor\n");
 				printf("\t\t===================\n\n");
@@ -17,17 +19,19 @@ class MenuItem: public Menu{
 		
 		void readUserInput(){
 				string input = "";
-				scanf("%s", &input);
+				cin>>input;
 				
-				int option = checkMenuInput(input);
-				Item item = new Item();
-				switch(option):
-					case "1": item.add(); break;
-					case "2": item.edit(); break;
-					case "3": item.remove(); break;
-					case "4": menuOptions(); break;
-					default throw(100);
+				int option = tools.checkMenuInput(input);
+				Item item;
+				switch(option){
+					case 1: item.add(); break;
+					case 2: item.edit(); break;
+					case 3: item.remove(); break;
+					case 4:  break;
+					default: throw(100);
+				}
+					
 			}
 	public:
 		void showDetailsMenu(){}		
-}
+};

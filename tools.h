@@ -1,21 +1,25 @@
+#ifndef TOOLS_H
+#define TOOLS_H
+
 #include <string>
+#include <sstream>
 
-class Tools{
-	public:
-		/* Checking for invalid input option chosen by the user
-		*  TODO: handle more than 1 digit option	
-		*/
-		int checkMenuInput(string input){
-			if(input.size()>1)
-				throw(100);
-			else
-			{
-				int option = (int) input[0];
-				if(option > 0 && option <= 9)
-					return option;
-				else
-					throw(100);
-			}
-		}
-}
+using namespace std;
 
+class Tools {
+public:
+    /* Checking for invalid input option chosen by the user
+    */
+    int checkMenuInput(string input) {
+        stringstream st(input);
+        int option;
+        st >> option;
+        if (option == 0)
+            throw (100);
+        else
+            return option;
+
+    }
+};
+
+#endif

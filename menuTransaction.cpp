@@ -1,6 +1,7 @@
 #include <string>
 #include "menu.h"
-#include "transaction.h"
+#include "transaction.cpp"
+using namespace std;
 
 class MenuTransaction: public Menu{
 	private:
@@ -10,12 +11,12 @@ class MenuTransaction: public Menu{
 
 		void readUserInput(){
 			string input;
-			scanf("%s", &input);
+			cin>>input;
 			
-			Transaction transaction = new Transaction();
-			transaction = transaction.find(transCode);
+			Transaction* transaction;
+			transaction = transaction->find(input);
 	
-			transaction.printData();					
+			transaction->printData();					
 		}
-}
+};
 

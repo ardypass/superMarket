@@ -1,12 +1,13 @@
 #include <iostream>
-#include "menu.h"
+#include "mainMenu.cpp"
+
 using namespace std;
 
 /* Starting the app with creating a menu */
 void runApp(){
-	MainMenu mainMenu = new MainMenu();
-		
-	while(1){
+	MainMenu mainMenu;
+
+	while(true){
 		mainMenu.showMenu();
 	}
 }
@@ -14,9 +15,13 @@ void runApp(){
 int main(){
 	try{
 		runApp();
-	}catch(){
-		printf("Something went wrong!! Restarting the app...");
-		runApp();
+	}catch(int e){
+	    if(e == 100)
+		    cout<<"Wrong Input!! Restarting the app..."<<endl;
+	    else
+            cout<<"Something went wrong!! Restarting the app..."<<endl;
+
+        runApp();
 	}
 	
 	return 0;
