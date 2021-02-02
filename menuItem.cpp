@@ -1,6 +1,6 @@
 #include <string>
 #include "menu.h"
-#include "item.h"
+#include "itemOps.cpp"
 #include "tools.h"
 
 using namespace std;
@@ -10,7 +10,7 @@ private:
     Tools tools;
 
     void printMenu() {
-        printf("\t\tBill Editor\n");
+        printf("\t\tItem Editor\n");
         printf("\t\t===================\n\n");
 
         printf("\t1.Add Item Details\n");
@@ -24,16 +24,16 @@ private:
         cin >> input;
 
         int option = tools.checkMenuInput(input);
-        Item item;
+        ItemOps itemOPs;
         switch (option) {
             case 1:
-                item.add();
+                itemOPs.add();
                 break;
             case 2:
-                item.edit();
+                itemOPs.edit();
                 break;
             case 3:
-                item.remove();
+                itemOPs.remove();
                 break;
             case 4:
                 break;

@@ -1,6 +1,6 @@
 #include <string>
 #include "menu.h"
-#include "transaction.h"
+#include "transactionOps.cpp"
 #include "tools.h"
 
 using namespace std;
@@ -10,23 +10,38 @@ private:
     Tools tools;
 
     void printMenu() {
-        printf("\tPlease Enter Transaction Number\n");
-        printf("\tEnter 0 to Back to Main Menu\n");
+        printf("\t\tBill Editor\n");
+        printf("\t\t===================\n\n");
+
+        printf("\t1.Add Bill\n");
+        printf("\t2.Edit Bill\n");
+        printf("\t3.Delete Bill\n");
+        printf("\t4.Back to Main Menu 1\n");
     }
 
     void readUserInput() {
-        string input;
+        string input = "";
         cin >> input;
 
-
-        if(input != "0")
-        {
-            int transId = tools.checkMenuInput(input);
-            Transaction *transaction;
-            transaction = transaction->find(transId);
-
-            transaction->printData();
+        int option = tools.checkMenuInput(input);
+        TransactionOps transactionOps;
+        switch (option) {
+            case 1:
+                transactionOps.add();
+                break;
+            case 2:
+                transactionOps.edit();
+                break;
+            case 3:
+                transactionOps.remove();
+                break;
+            case 4:
+                break;
+            default:
+                throw (100);
         }
+
+
 
     }
 };

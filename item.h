@@ -8,10 +8,13 @@ using namespace std;
 class Item {
 private:
     int id;
+    int number;
     string name;
     string type;
     string dateAdded;
     double price;
+    bool deleted;
+
 public:
     int getId() const {
         return id;
@@ -23,6 +26,14 @@ public:
 
     const string &getName() const {
         return name;
+    }
+
+    int getNumber() const {
+        return number;
+    }
+
+    void setNumber(int number) {
+        Item::number = number;
     }
 
     void setName(const string &name) {
@@ -51,6 +62,18 @@ public:
 
     void setPrice(double price) {
         Item::price = price;
+    }
+
+    bool isDeleted() const {
+        return deleted;
+    }
+
+    void setIsDeleted(bool deleted) {
+        Item::deleted = deleted;
+    }
+
+    Item(){
+        deleted = false;
     }
 };
 

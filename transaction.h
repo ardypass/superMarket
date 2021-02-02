@@ -2,15 +2,16 @@
 #define TRANSACTION_H
 
 #include <string>
-#include <vector>
 
 using namespace std;
 
 class Transaction {
 private:
     int id;
-    int date;
-    vector<Item *> items[1000];
+    int number;
+    string date, itemsId;
+    double price;
+    bool deleted;
 public:
     int getId() const {
         return id;
@@ -20,20 +21,20 @@ public:
         Transaction::id = id;
     }
 
-    int getDate() const {
+    int getNumber() const {
+        return number;
+    }
+
+    void setNumber(int number) {
+        Transaction::number = number;
+    }
+
+    string getDate() const {
         return date;
     }
 
-    void setDate(int date) {
+    void setDate(string date) {
         Transaction::date = date;
-    }
-
-    const vector<Item *> *getItems() const {
-        return items;
-    }
-
-    void setItems(vector<Item *> *items) {
-        items = Transaction::items;
     }
 
     double getPrice() const {
@@ -44,8 +45,21 @@ public:
         Transaction::price = price;
     }
 
-private:
-    double price;
+    const string &getItemsId() const {
+        return itemsId;
+    }
+
+    void setItemsId(const string &itemsId) {
+        Transaction::itemsId = itemsId;
+    }
+
+    bool isDeleted() const {
+        return deleted;
+    }
+
+    void setDeleted(bool deleted) {
+        Transaction::deleted = deleted;
+    }
 };
 
 #endif
