@@ -80,7 +80,21 @@ public:
         tools.writeToFile(transaction);
     }
 
-    void edit() {}
+    void edit() {
+        printf("\tPlease Enter Bill Number to Edit\n");
+        printf("\tEnter 0 to Back to Main Menu\n");
+
+        string input;
+        cin >> input;
+
+        if (input != "0") {
+            int itemNum = tools.checkMenuInput(input);
+
+            Transaction transaction = getFromFileByNumber(itemNum);
+            tools.removeData(&transaction);
+            add();
+        }
+    }
 
     void remove() {
         printf("\tPlease Enter Bill Number to Remove\n");
@@ -90,8 +104,10 @@ public:
         cin >> input;
 
         if (input != "0") {
-            int transId = tools.checkMenuInput(input);
+            int itemNum = tools.checkMenuInput(input);
 
+            Transaction transaction = getFromFileByNumber(itemNum);
+            tools.removeData(&transaction);
         }
     }
 

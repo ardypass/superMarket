@@ -90,12 +90,35 @@ public:
         tools.writeToFile(item);
     }
 
-    void edit() {}
+    void edit() {
+        printf("\tPlease Enter Item Number to Edit\n");
+        printf("\tEnter 0 to Back to Main Menu\n");
+
+        string input;
+        cin >> input;
+
+        if (input != "0") {
+            int itemNum = tools.checkMenuInput(input);
+
+            Item item = getFromFileByNumber(itemNum);
+            tools.removeData(&item);
+            add();
+        }
+    }
 
     void remove() {
-        int number;
-        cout << "Enter number of the item to remove: ";
-        cin >> number;
+        printf("\tPlease Enter Item Number to Remove\n");
+        printf("\tEnter 0 to Back to Main Menu\n");
+
+        string input;
+        cin >> input;
+
+        if (input != "0") {
+            int itemNum = tools.checkMenuInput(input);
+
+            Item item = getFromFileByNumber(itemNum);
+            tools.removeData(&item);
+        }
     }
 
     void showDetails() {
