@@ -54,7 +54,6 @@ private:
     }
 
 public:
-    //TODO: check input and input type
     void add() {
         int number;
         string date, itemsId;

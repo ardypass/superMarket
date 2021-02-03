@@ -60,7 +60,6 @@ private:
     }
 
 public:
-    //TODO: check input type mismatch
     void add() {
         int number;
         string name, date, type;
