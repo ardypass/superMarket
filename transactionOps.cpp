@@ -60,9 +60,11 @@ public:
         string date, itemsId;
         double price;
         Transaction transaction;
+        string temp;
 
         cout << "Bill number: ";
-        cin >> number;
+        cin >> temp;
+        number = stoi(temp);
         transaction.setNumber(number);
 
         cout << "Date of Transaction: ";
@@ -74,7 +76,8 @@ public:
         transaction.setItemsId(itemsId);
 
         cout << "Price: ";
-        cin >> price;
+        cin >> temp;
+        price = stod(temp);
         transaction.setPrice(price);
 
         tools.writeToFile(transaction);

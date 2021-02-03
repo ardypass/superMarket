@@ -28,6 +28,9 @@ int main() {
             cout << "Something went wrong!! Restarting the app..." << endl;
 
         runApp();
+    } catch (const std::invalid_argument& ) {
+        cout << "Wrong Input!! Restarting the app..." << endl;
+        runApp();
     }
 
     return 0;

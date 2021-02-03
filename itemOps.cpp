@@ -66,9 +66,11 @@ public:
         string name, date, type;
         double price;
         Item item;
+        string temp;
 
         cout << "Item No.: ";
-        cin >> number;
+        cin >> temp;
+        number = stoi(temp);
         item.setNumber(number);
 
         cout << "Name of the item: ";
@@ -84,7 +86,8 @@ public:
         item.setType(type);
 
         cout << "Price: ";
-        cin >> price;
+        cin >> temp;
+        price = stod(temp);
         item.setPrice(price);
 
         tools.writeToFile(item);
