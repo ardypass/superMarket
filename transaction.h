@@ -11,8 +11,11 @@ private:
     int number;
     string date, itemsId;
     double price;
-    bool deleted;
+    string fileName;
 public:
+    Transaction(){
+        this->fileName = "transactionReport.csv";
+    }
     int getId() const {
         return id;
     }
@@ -53,12 +56,12 @@ public:
         Transaction::itemsId = itemsId;
     }
 
-    bool isDeleted() const {
-        return deleted;
+    const string &getFileName() const {
+        return fileName;
     }
 
-    void setDeleted(bool deleted) {
-        Transaction::deleted = deleted;
+    void setFileName(const string &fileName) {
+        Transaction::fileName = fileName;
     }
 };
 

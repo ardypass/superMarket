@@ -1,2 +1,5 @@
 Error Code,Description
-100,Wrong Input
+400,Wrong Input
+404,File Not Found
+500,Internal Error
+204,No Data

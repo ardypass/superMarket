@@ -16,7 +16,8 @@ private:
         printf("\t1.Add Item Details\n");
         printf("\t2.Edit Item Details\n");
         printf("\t3.Delete Item Details\n");
-        printf("\t4.Back to Main Menu 1\n");
+        printf("\t4.Show Item Details\n");
+        printf("\t5.Back to Main Menu 1\n");
     }
 
     void readUserInput() {
@@ -36,13 +37,13 @@ private:
                 itemOPs.remove();
                 break;
             case 4:
+                itemOPs.showDetails(); break;
+            case 5:
                 break;
             default:
-                throw (100);
+                throw (400);
         }
 
     }
 
-public:
-    void showDetailsMenu() {}
 };

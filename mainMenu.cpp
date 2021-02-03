@@ -18,9 +18,8 @@ private:
         printf("\t\t===========================\n\n");
 
         printf("\t1.Bill Report\n");
-        printf("\t2.Add/Remove/Edit Item\n");
-        printf("\t3.Show Item Details\n");
-        printf("\t4.Exit\n");
+        printf("\t2.Item Report\n");
+        printf("\t3.Exit\n");
     }
 
     void readUserInput() {
@@ -37,13 +36,9 @@ private:
                 menuItem.showMenu();
                 break;
             case 3:
-                menuItem.showDetailsMenu();
-                break;
-            case 4:
                 exit(EXIT_SUCCESS);
-                break;
             default:
-                throw (100);
+                throw (400);
         }
 
 

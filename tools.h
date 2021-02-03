@@ -4,6 +4,7 @@
 #include <string>
 #include <sstream>
 #include <fstream>
+#include <map>
 #include "transaction.h"
 
 using namespace std;
@@ -31,7 +32,7 @@ public:
         int option;
         st >> option;
         if (option == 0)
-            throw (100);
+            throw (400);
         else
             return option;
 
@@ -39,23 +40,23 @@ public:
 
     /* File Operations */
     void writeToFile(Item item) {
-        string fileName = "itemsReport.csv";
+        string fileName = item.getFileName();
         item.setId(findLastId(fileName)+1);
         fstream fout;
 
         fout.open(fileName, ios::out | ios::app);
         fout << item.getId() << ", "
+        << item.getNumber() << ", "
         << item.getName() << ", "
         << item.getType() << ", "
         << item.getDateAdded() << ", "
-        << item.getPrice() << ", "
-        << item.isDeleted() << endl;
+        << item.getPrice() << endl;
 
         fout.close();
     }
 
     void writeToFile(Transaction transaction) {
-        string fileName = "transactionReport.csv";
+        string fileName = transaction.getFileName();
         transaction.setId(findLastId(fileName)+1);
         fstream fout;
 
@@ -64,21 +65,9 @@ public:
              << transaction.getNumber() << ", "
              << transaction.getDate() << ", "
              << transaction.getItemsId() << ", "
-             << transaction.getPrice() << ", "
-             << transaction.isDeleted() <<endl;
+             << transaction.getPrice() << endl;
 
         fout.close();
-    }
-
-    void readFile(string fileName) {
-        fstream fin;
-        fin.open(fileName, ios::in);
-    }
-
-    void updateFile(string fileName) {
-        fstream fin, fout;
-        fin.open("reportcard.csv", ios::in);
-        fout.open("reportcardnew.csv", ios::out);
     }
 };
 

@@ -16,7 +16,8 @@ private:
         printf("\t1.Add Bill\n");
         printf("\t2.Edit Bill\n");
         printf("\t3.Delete Bill\n");
-        printf("\t4.Back to Main Menu 1\n");
+        printf("\t4.Show Bill Details\n");
+        printf("\t5.Back to Main Menu 1\n");
     }
 
     void readUserInput() {
@@ -36,9 +37,11 @@ private:
                 transactionOps.remove();
                 break;
             case 4:
+                transactionOps.showDetails(); break;
+            case 5:
                 break;
             default:
-                throw (100);
+                throw (400);
         }
 
 

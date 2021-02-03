@@ -16,8 +16,14 @@ int main() {
     try {
         runApp();
     } catch (int e) {
-        if (e == 100)
+        if (e == 400)
             cout << "Wrong Input!! Restarting the app..." << endl;
+        else if (e == 404)
+            cout << "File Not Found!! Restarting the app..." << endl;
+        else if (e == 204)
+            cout << "Data Not Found!! Restarting the app..." << endl;
+        else if (e == 500)
+            cout << "Internal Error!! Restarting the app..." << endl;
         else
             cout << "Something went wrong!! Restarting the app..." << endl;
 

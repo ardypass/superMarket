@@ -13,9 +13,12 @@ private:
     string type;
     string dateAdded;
     double price;
-    bool deleted;
-
+    string fileName;
 public:
+    Item(){
+        this->fileName = "itemsReport.csv";
+    }
+
     int getId() const {
         return id;
     }
@@ -64,16 +67,12 @@ public:
         Item::price = price;
     }
 
-    bool isDeleted() const {
-        return deleted;
+    const string &getFileName() const {
+        return fileName;
     }
 
-    void setIsDeleted(bool deleted) {
-        Item::deleted = deleted;
-    }
-
-    Item(){
-        deleted = false;
+    void setFileName(const string &fileName) {
+        Item::fileName = fileName;
     }
 };
 
