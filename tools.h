@@ -90,7 +90,7 @@ public:
                 if (fromItem->getNumber() == stoi(rowNumber))
                     continue;
                 else
-                    fout << line;
+                    fout << line << endl;
 
             } catch (int e) {
                 throw (500);
